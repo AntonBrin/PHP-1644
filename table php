@@ -1,0 +1,57 @@
+<!doctype html>
+    <html lang="ru">
+        <head>
+            <meta charset="UTF-8">
+            <title>Знакомство с PHP</title>
+        </head>
+        <body>
+  
+  <!--таблица умножения-->
+          <table border = "1" rules = "none"> 
+                <?php
+                  $operators = ['+','-','*','/'];
+                  for($i = 1; $i<35; $i++){
+                      echo '<tr>';
+                      for($j = 1; $j<=5; $j++){
+                      $operator = $operators[rand(0,3)];
+                      $num1 = rand(1,20); $num2 = rand(1,20);
+                      if($operator=='/' and $num1%$num2!=0){   /*Делим без остатка*/
+                        --$j;
+                        continue;
+                      }
+                      
+                      if($operator=='-' and $num1-$num2<0){ /*При вычетании не получаем отрицательных чисел*/
+                        --$j;
+                        continue;
+                      }
+                      
+                      /*if($operator=='-' and $num1-$num2<0*/ /*При вычетании не получаем отрицательных чисел*/
+                      /*or $operator=='/' and $num1%$num2!=0
+                      or $operator=='*' and $num1*$num2>100){
+                        --$j;
+                        continue;
+                      } Еще один вариант выполнения задания*/
+                      
+                      if($operator=='*' and $num1*$num2>100){  /*При умножении не получаем чисел больше 100*/
+                        --$j;
+                        continue;
+                      }
+                      echo "<td align = 'right'>$num1$operator$num2=____</td>";
+                      }    
+                  echo '</tr>';
+                  }  
+                ?>
+          </table>
+              
+              
+  
+        </body>
+    </html>
+                      
+  
+                    
+                    
+  
+  <!--/*$name = "Иван"; переменная не обьявляется. Пишется сразу обязательно со знаком $*/
+    /*echo "Привет ".$name; echo-выводит на экран что либо. Обьединение строк через точку*/-->
+ 
